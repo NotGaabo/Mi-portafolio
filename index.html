@@ -30,7 +30,7 @@
                         'fade-up-4': 'fadeUp 0.6s ease 0.6s both',
                         'fade-up-5': 'fadeUp 0.6s ease 0.75s both',
                         'fade-up-6': 'fadeUp 0.6s ease 0.9s both',
-                        'fade-panel': 'fadeUp 0.7s ease 0.55s both',
+                        'fade-panel': 'fadeUp 0.7s ease 0.2s both',
                     },
                     keyframes: {
                         cursorBlink: { '0%,100%': { opacity: '1' }, '50%': { opacity: '0' } },
@@ -95,15 +95,74 @@
             transform: translateX(-50%);
         }
 
+        /* ===== RESPONSIVE HERO ===== */
+        /* Mobile: stack vertically, code panel first */
+        #hero-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 2rem;
+        }
+
+        /* Code panel goes FIRST on mobile */
+        #hero-code { order: 1; }
+        #hero-text { order: 2; }
+
+        /* Desktop: side by side, text left / code right */
+        @media (min-width: 768px) {
+            #hero-inner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2.5rem;
+            }
+            #hero-text { order: 1; flex: 1; }
+            #hero-code { order: 2; flex: 1; display: flex; justify-content: flex-end; }
+        }
+
+        /* ===== GIT TIMELINE RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .git-timeline::before { left: 20px; transform: none; }
+            .git-entry {
+                grid-template-columns: 44px 1fr !important;
+                gap: 0 !important;
+            }
+            .git-card-left,
+            .git-card-right {
+                grid-column: 2;
+                grid-row: 1;
+                padding: 0 !important;
+                justify-content: flex-start !important;
+            }
+            .git-center-col {
+                grid-column: 1;
+                grid-row: 1;
+                align-items: center;
+                padding-top: 0.75rem;
+            }
+            .git-date-badge { display: none; }
+            .git-entry .git-card-left > div,
+            .git-entry .git-card-right > div {
+                max-width: 100% !important;
+            }
+        }
+
+        /* ===== CONTACT RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            #contact-row { flex-direction: column; }
+            #contact-name-email { flex-direction: column; }
+            #contact-name-email input { width: 100% !important; }
+        }
+
         /* Smooth scroll */
         html { scroll-behavior: smooth; }
 
-        @media (max-width: 900px) {
-            .git-timeline::before { left: 20px; }
-            .git-entry { grid-template-columns: 44px 1fr !important; gap: 0 !important; }
-            .git-card-left, .git-card-right { grid-column: 2; grid-row: 1; padding: 0 !important; }
-            .git-center-col { grid-column: 1; grid-row: 1; }
-            .git-date-badge { display: none; }
+        /* Prevent horizontal overflow on mobile */
+        body { overflow-x: hidden; }
+
+        /* Code panel font size scaling */
+        @media (max-width: 400px) {
+            .code-panel-body { font-size: 11px !important; }
         }
     </style>
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
@@ -113,13 +172,13 @@
 <body class="bg-dark text-white overflow-x-hidden m-0 p-0">
 
 <!-- ===================== NAV ===================== -->
-<nav id="header" class="fixed top-0 left-0 w-full h-[90px] flex items-center justify-between px-[9vw] z-50 transition-all duration-300 bg-transparent">
+<nav id="header" class="fixed top-0 left-0 w-full h-[70px] md:h-[90px] flex items-center justify-between px-5 md:px-[9vw] z-50 transition-all duration-300 bg-transparent">
     <div class="relative">
-        <p class="text-3xl font-semibold text-white font-sans">Yoensi Manuel</p>
-        <span class="absolute -top-4 -right-5 text-5xl text-white/30">.</span>
+        <p class="text-xl md:text-3xl font-semibold text-white font-sans">Yoensi Manuel</p>
+        <span class="absolute -top-3 -right-4 text-4xl md:text-5xl text-white/30">.</span>
     </div>
 
-    <div class="nav-menu hidden md:flex" id="myNavMenu">
+    <div class="hidden md:flex" id="myNavMenu">
         <ul class="flex gap-2">
             <li class="relative"><a href="#home" class="nav-link active-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Home</a></li>
             <li class="relative"><a href="#projects" class="nav-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Projects</a></li>
@@ -137,110 +196,118 @@
 </nav>
 
 <!-- Mobile menu -->
-<div id="mobileMenu" class="hidden fixed top-[90px] left-0 w-full min-h-[450px] bg-dark/95 backdrop-blur-xl z-40 flex-col items-center justify-center gap-8">
+<div id="mobileMenu" class="hidden fixed top-[70px] left-0 w-full min-h-[280px] bg-dark/95 backdrop-blur-xl z-40 flex-col items-center justify-center gap-8">
     <a href="#home" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Home</a>
     <a href="#projects" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Projects</a>
     <a href="#contact" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Contact</a>
+    <a href="assets/pdf/cv_yoensi_arias.pdf" download class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/20 bg-white/5 text-white text-sm font-medium hover:bg-[rgb(75,4,84)] transition-all no-underline">
+        Download CV <i class="uil uil-file-alt"></i>
+    </a>
 </div>
 
 <!-- ===================== HERO ===================== -->
-<section id="home" class="relative flex items-center justify-between w-full min-h-screen px-[8vw] gap-10 bg-dark overflow-hidden box-border" style="padding-top:90px;">
+<section id="home" class="relative w-full min-h-screen px-5 md:px-[8vw] bg-dark overflow-hidden box-border" style="padding-top: 80px; padding-bottom: 60px;">
     <!-- Glow orbs -->
     <div class="absolute -top-44 -left-28 w-[560px] h-[560px] rounded-full pointer-events-none z-0" style="background:radial-gradient(circle,rgba(75,4,84,0.3) 0%,transparent 70%)"></div>
     <div class="absolute -bottom-40 -right-28 w-[480px] h-[480px] rounded-full pointer-events-none z-0" style="background:radial-gradient(circle,rgba(75,4,84,0.18) 0%,transparent 70%)"></div>
 
-    <!-- LEFT -->
-    <div class="relative z-10 flex flex-col justify-center w-full md:w-1/2">
-        <!-- Headline -->
-        <div class="animate-fade-up-2 mb-3">
-            <h1 class="font-sans font-bold leading-[1.1] text-white m-0" style="font-size:clamp(38px,5vw,64px);">
-                Hi, I'm<br>
-                <span class="gradient-name">Yoensi Manuel</span>
-            </h1>
-        </div>
+    <!-- Hero inner: flex column on mobile (code first), row on desktop (text left, code right) -->
+    <div id="hero-inner" class="relative z-10 w-full" style="min-height: calc(100vh - 140px); align-items: center;">
 
-        <!-- Role -->
-        <div class="animate-fade-up-3 font-mono text-[15px] text-[#e8833a] mb-6">
-            <span class="text-[#8888aa]">&lt;</span>Software Eng.<span class="text-[#8888aa]"> /&gt;</span>
-            <span class="text-white"> Building the Future.</span>
-        </div>
-
-        <!-- Description -->
-        <p class="animate-fade-up-4 text-sm text-[#8888aa] leading-[1.75] max-w-[430px] mb-7">
-            Software Engineering student passionate about web and mobile development.
-            Specialized in Python, React and SQL. Organized, creative and always
-            eager to grow and contribute to every project.
-        </p>
-
-        <!-- Tech modules -->
-        <div class="animate-fade-up-5 flex items-center flex-wrap gap-2 mb-7">
-            <span class="font-mono text-[10px] tracking-widest text-[#8888aa]">LOADED_MODULES:</span>
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Python</span>
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">TypeScript</span>
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">React</span>
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Docker</span>
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">MySQL</span>
-        </div>
-
-        <!-- CTA Buttons -->
-        <div class="animate-fade-up-5 flex flex-wrap gap-3 mb-10">
-            <a href="assets/pdf/cv_yoensi_arias.pdf" download class="flex items-center gap-2 bg-transparent text-[#e8e8f0] border border-white/15 font-sans text-sm font-medium rounded-lg px-5 py-3 no-underline transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#e8b4ff] hover:bg-[rgba(75,4,84,0.1)]">
-                <i class="uil uil-file-alt"></i> Download CV
-            </a>
-        </div>
-
-        <!-- Social icons -->
-        <div class="animate-fade-up-6 flex gap-3">
-            <a href="https://instagram.com/yoelwxq" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-instagram text-base"></i></a>
-            <a href="https://www.linkedin.com/in/yoensi-arias-248b32299/" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-linkedin-alt text-base"></i></a>
-            <a href="https://github.com/notgaabo" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-github-alt text-base"></i></a>
-        </div>
-    </div>
-
-    <!-- RIGHT — Code Panel -->
-    <div class="animate-fade-panel relative z-10 w-full md:w-1/2 flex justify-end items-center">
-        <div class="panel-shadow w-full max-w-[520px] rounded-xl overflow-hidden border border-[rgba(75,4,84,0.4)] bg-card font-mono">
-            <!-- Window bar -->
-            <div class="flex items-center justify-between px-4 py-3 bg-black/30 border-b border-[rgba(75,4,84,0.2)]">
-                <div class="flex gap-1.5">
-                    <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-                    <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+        <!-- CODE PANEL — order 1 on mobile, order 2 on desktop -->
+        <div id="hero-code" class="w-full">
+            <div class="animate-fade-panel panel-shadow w-full max-w-[520px] mx-auto md:mx-0 md:ml-auto rounded-xl overflow-hidden border border-[rgba(75,4,84,0.4)] bg-card font-mono">
+                <!-- Window bar -->
+                <div class="flex items-center justify-between px-4 py-3 bg-black/30 border-b border-[rgba(75,4,84,0.2)]">
+                    <div class="flex gap-1.5">
+                        <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+                        <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+                        <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-[#8888aa]">
+                        <span class="animate-status-pulse w-1.5 h-1.5 rounded-full bg-[#e8833a] shadow-[0_0_6px_#e8833a]"></span>
+                        portfolio.tsx
+                    </div>
+                    <div class="w-16"></div>
                 </div>
-                <div class="flex items-center gap-2 text-xs text-[#8888aa]">
-                    <span class="animate-status-pulse w-1.5 h-1.5 rounded-full bg-[#e8833a] shadow-[0_0_6px_#e8833a]"></span>
-                    portfolio.tsx
+
+                <!-- Code body -->
+                <div class="code-panel-body px-4 md:px-6 py-5 text-[12px] md:text-[13px] leading-[1.9]">
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">1</span><span class="text-[#546e7a]">// Welcome to my workspace</span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">2</span><span><span class="text-[#c792ea]">import</span><span class="text-white"> { </span><span class="text-[#69b5ff]">Developer</span><span class="text-white"> } </span><span class="text-[#c792ea]">from</span><span class="text-[#4ec94e]"> './universe'</span><span class="text-white">;</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">3</span><span>&nbsp;</span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">4</span><span><span class="text-[#c792ea]">const</span><span class="text-[#82aaff]"> Portfolio</span><span class="text-white"> = () =&gt; {</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">5</span><span>&nbsp;&nbsp;<span class="text-[#c792ea]">return</span> <span class="text-white">(</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">6</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">&lt;Developer</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">7</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">name</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Yoensi Arias"</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">8</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">role</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Software Eng."</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">9</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">passion</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Building the Future"</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">/&gt;</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">11</span><span>&nbsp;&nbsp;<span class="text-white">);</span></span></div>
+                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">12</span><span><span class="text-white">};</span><span class="inline-block w-0.5 h-3.5 bg-[#c792ea] ml-0.5 align-middle animate-cursor-blink"></span></span></div>
                 </div>
-                <div class="w-16"></div>
+
+                <!-- Panel buttons -->
+                <div class="flex gap-2.5 px-4 md:px-6 pb-5 pt-3.5 border-t border-[rgba(75,4,84,0.2)]">
+                    <a href="#about" class="flex items-center gap-2 bg-[rgb(75,4,84)] text-white font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all shadow-[0_0_14px_rgba(75,4,84,0.4)] hover:bg-[#6a0dad]">
+                        <i class="uil uil-play text-sm"></i> View Profile
+                    </a>
+                    <a href="#projects" class="flex items-center gap-2 bg-transparent text-[#d0d0e8] border border-white/10 font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all hover:border-[rgba(75,4,84,0.6)] hover:text-[#d070f0]">
+                        <i class="uil uil-folder-open text-sm"></i> View Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEXT CONTENT — order 2 on mobile, order 1 on desktop -->
+        <div id="hero-text" class="flex flex-col justify-center w-full">
+            <!-- Headline -->
+            <div class="animate-fade-up-2 mb-3">
+                <h1 class="font-sans font-bold leading-[1.1] text-white m-0" style="font-size:clamp(34px,5vw,64px);">
+                    Hi, I'm<br>
+                    <span class="gradient-name">Yoensi Manuel</span>
+                </h1>
             </div>
 
-            <!-- Code body -->
-            <div class="px-6 py-5 text-[13px] leading-[1.9]">
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">1</span><span class="text-[#546e7a]">// Welcome to my workspace</span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">2</span><span><span class="text-[#c792ea]">import</span><span class="text-white"> { </span><span class="text-[#69b5ff]">Developer</span><span class="text-white"> } </span><span class="text-[#c792ea]">from</span><span class="text-[#4ec94e]"> './universe'</span><span class="text-white">;</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">3</span><span>&nbsp;</span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">4</span><span><span class="text-[#c792ea]">const</span><span class="text-[#82aaff]"> Portfolio</span><span class="text-white"> = () =&gt; {</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">5</span><span>&nbsp;&nbsp;<span class="text-[#c792ea]">return</span> <span class="text-white">(</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">6</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">&lt;Developer</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">7</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">name</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Yoensi Arias"</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">8</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">role</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Software Eng."</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">9</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">passion</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Building the Future"</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">/&gt;</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">11</span><span>&nbsp;&nbsp;<span class="text-white">);</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">12</span><span><span class="text-white">};</span><span class="inline-block w-0.5 h-3.5 bg-[#c792ea] ml-0.5 align-middle animate-cursor-blink"></span></span></div>
+            <!-- Role -->
+            <div class="animate-fade-up-3 font-mono text-[14px] md:text-[15px] text-[#e8833a] mb-5 md:mb-6">
+                <span class="text-[#8888aa]">&lt;</span>Software Eng.<span class="text-[#8888aa]"> /&gt;</span>
+                <span class="text-white"> Building the Future.</span>
             </div>
 
-            <!-- Panel buttons -->
-            <div class="flex gap-2.5 px-6 pb-5 pt-3.5 border-t border-[rgba(75,4,84,0.2)]">
-                <a href="#about" class="flex items-center gap-2 bg-[rgb(75,4,84)] text-white font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all shadow-[0_0_14px_rgba(75,4,84,0.4)] hover:bg-[#6a0dad]">
-                    <i class="uil uil-play text-sm"></i> View Profile
-                </a>
-                <a href="#projects" class="flex items-center gap-2 bg-transparent text-[#d0d0e8] border border-white/10 font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all hover:border-[rgba(75,4,84,0.6)] hover:text-[#d070f0]">
-                    <i class="uil uil-folder-open text-sm"></i> View Projects
+            <!-- Description -->
+            <p class="animate-fade-up-4 text-sm text-[#8888aa] leading-[1.75] max-w-[430px] mb-6 md:mb-7">
+                Software Engineering student passionate about web and mobile development.
+                Specialized in Python, React and SQL. Organized, creative and always
+                eager to grow and contribute to every project.
+            </p>
+
+            <!-- Tech modules -->
+            <div class="animate-fade-up-5 flex items-center flex-wrap gap-2 mb-6 md:mb-7">
+                <span class="font-mono text-[10px] tracking-widest text-[#8888aa]">LOADED_MODULES:</span>
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Python</span>
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">TypeScript</span>
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">React</span>
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Docker</span>
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">MySQL</span>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="animate-fade-up-5 flex flex-wrap gap-3 mb-8 md:mb-10">
+                <a href="assets/pdf/cv_yoensi_arias.pdf" download class="flex items-center gap-2 bg-transparent text-[#e8e8f0] border border-white/15 font-sans text-sm font-medium rounded-lg px-5 py-3 no-underline transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#e8b4ff] hover:bg-[rgba(75,4,84,0.1)]">
+                    <i class="uil uil-file-alt"></i> Download CV
                 </a>
             </div>
+
+            <!-- Social icons -->
+            <div class="animate-fade-up-6 flex gap-3">
+                <a href="https://instagram.com/yoelwxq" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-instagram text-base"></i></a>
+                <a href="https://www.linkedin.com/in/yoensi-arias-248b32299/" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-linkedin-alt text-base"></i></a>
+                <a href="https://github.com/notgaabo" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-github-alt text-base"></i></a>
+            </div>
         </div>
-    </div>
+
+    </div><!-- end hero-inner -->
 
     <!-- Scroll arrow -->
     <a href="#projects" class="animate-bounce-down absolute bottom-7 left-1/2 z-10 flex flex-col items-center gap-1 no-underline text-[#8888aa] text-xs">
@@ -249,29 +316,28 @@
 </section>
 
 <!-- ===================== PROJECTS — GIT LOG ===================== -->
-<section id="projects" class="bg-dark py-20 px-[8vw] w-full box-border overflow-x-hidden">
-    <div class="text-center mb-16">
+<section id="projects" class="bg-dark py-16 md:py-20 px-5 md:px-[8vw] w-full box-border overflow-x-hidden">
+    <div class="text-center mb-12 md:mb-16">
         <h1 class="text-2xl font-bold text-[#e8e8f0] font-sans mb-2">Projects</h1>
         <span class="text-[#8888aa] text-sm">Featured repositories from GitHub</span>
     </div>
 
-    <div class="flex items-center gap-2.5 flex-wrap mb-12 font-mono font-semibold text-[#e8e8f0]" style="font-size:clamp(15px,2vw,22px)">
+    <div class="flex items-center gap-2.5 flex-wrap mb-10 md:mb-12 font-mono font-semibold text-[#e8e8f0]" style="font-size:clamp(14px,2vw,22px)">
         <span class="text-[#e8833a]">⎇</span>
         <span>$ git log</span>
         <span class="text-[#8888aa]">--stat --oneline</span>
     </div>
 
-    <div class="git-timeline relative flex flex-col gap-24 pb-5" id="git-timeline">
+    <div class="git-timeline relative flex flex-col gap-12 md:gap-24 pb-5" id="git-timeline">
         <div class="text-center font-mono text-[#8888aa] py-16 text-sm">
             <span class="text-[#e8833a]">$</span> Loading repos from <span class="text-[#c792ea]">NotGaabo</span>...
         </div>
     </div>
 
-    <!-- Initial commit node — centered on timeline -->
+    <!-- Initial commit node -->
     <div class="relative flex justify-center mt-10">
-        <!-- timeline line extension -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-6 bg-[rgba(75,4,84,0.5)]"></div>
-        <div class="mt-6 flex items-center gap-2 px-5 py-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-[#1a1a22] font-mono text-[13px] text-[#c8c8d8] shadow-[0_2px_18px_rgba(0,0,0,0.4)]">
+        <div class="mt-6 flex items-center gap-2 px-4 md:px-5 py-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-[#1a1a22] font-mono text-[11px] md:text-[13px] text-[#c8c8d8] shadow-[0_2px_18px_rgba(0,0,0,0.4)]">
             <span class="text-[#8888aa] tracking-tighter select-none">-</span>
             <div class="w-3 h-3 rounded-full border-2 border-[#c8c8d8] bg-dark flex-shrink-0"></div>
             <span class="text-[#8888aa] tracking-tighter select-none">-</span>
@@ -281,51 +347,284 @@
 </section>
 
 <!-- ===================== CONTACT ===================== -->
-<section id="contact" class="py-20 px-[10vw] bg-dark">
-    <div class="text-center mb-16">
-        <h1 class="text-2xl font-bold text-[#e8e8f0] font-sans mb-2">Get in Touch</h1>
-        <span class="text-[#8888aa] text-sm">If you have a project in mind, contact me now.</span>
+<section id="contact" class="py-16 md:py-20 px-5 md:px-[8vw] bg-dark">
+
+    <!-- Title -->
+    <div class="mb-10 md:mb-14">
+        <div class="flex items-center gap-3 font-mono font-semibold text-[#e8e8f0] mb-1" style="font-size:clamp(15px,2vw,22px)">
+            <i class="uil uil-envelope text-[#e8833a]"></i>
+            <span class="text-[#e8833a]">$</span>
+            <span>./contact.exe</span>
+        </div>
     </div>
 
-    <div class="flex flex-col md:flex-row justify-between gap-12">
-        <!-- Info -->
-        <div class="flex w-full md:w-1/2">
-            <div class="relative flex flex-col justify-center items-center w-full py-8 px-8 bg-[rgb(75,4,84)] rounded-xl shadow-lg overflow-hidden group">
-                <h2 class="text-white text-xl font-semibold mb-5 font-sans">Send me a message <i class="uil uil-corner-right-down"></i></h2>
-                <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-envelope text-lg"></i> yoensiar@gmail.com</p>
-                <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-phone text-lg"></i> +1 (849) 460-6390</p>
-                <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-map-marker text-lg"></i> Ensanche Espaillat, C/ Interior J #68</p>
+    <div class="flex flex-col lg:flex-row gap-5">
+
+        <!-- LEFT: contact_info.json -->
+        <div class="w-full lg:w-[45%] rounded-xl overflow-hidden border border-[rgba(75,4,84,0.4)] bg-card font-mono panel-shadow">
+            <!-- Window bar -->
+            <div class="flex items-center justify-between px-4 py-3 bg-black/40 border-b border-[rgba(75,4,84,0.25)]">
+                <div class="flex gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-[#8888aa]">
+                    <i class="uil uil-brackets-curly text-[#c792ea]"></i>
+                    contact_info.json
+                </div>
+                <div class="w-16"></div>
+            </div>
+
+            <!-- JSON Code -->
+            <div class="px-4 py-5 text-[13px] leading-[2] select-none">
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">1</span>
+                    <span class="text-white">{</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">2</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;"status"</span>
+                        <span class="text-white">: </span>
+                        <span class="text-[#4ec94e]">"open_to_work"</span>
+                        <span class="text-white">,</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">3</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;"email"</span>
+                        <span class="text-white">: </span>
+                        <span class="text-[#4ec94e]">"yoensiar@gmail.com"</span>
+                        <span class="text-white">,</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">4</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;"phone"</span>
+                        <span class="text-white">: </span>
+                        <span class="text-[#4ec94e]">"+1 (849) 460-6390"</span>
+                        <span class="text-white">,</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">5</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;"socials"</span>
+                        <span class="text-white">: {</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">6</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;&nbsp;&nbsp;"github"</span>
+                        <span class="text-white">: </span>
+                        <span class="text-[#4ec94e]">"@NotGaabo"</span>
+                        <span class="text-white">,</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">7</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;&nbsp;&nbsp;"linkedin"</span>
+                        <span class="text-white">: </span>
+                        <span class="text-[#4ec94e]">"@yoensi-arias"</span>
+                        <span class="text-white">,</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">8</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;&nbsp;&nbsp;"instagram"</span>
+                        <span class="text-white">: </span>
+                        <span class="text-[#4ec94e]">"@yoelwxq"</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">9</span>
+                    <span class="text-white">&nbsp;&nbsp;},</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">10</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;"location"</span>
+                        <span class="text-white">: </span>
+                        <span class="text-[#4ec94e]">"Santo Domingo, DR"</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">11</span>
+                    <span class="text-white">}</span>
+                </div>
+                <div class="flex gap-4 mt-2">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">12</span>
+                    <span class="text-[#546e7a] italic">// Waiting for connection...</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">13</span>
+                    <span class="inline-block w-2 h-4 bg-[#c792ea] animate-cursor-blink align-middle"></span>
+                </div>
             </div>
         </div>
 
-        <!-- Form -->
-        <div class="flex w-full md:w-1/2">
-            <form id="contact-form" class="flex flex-col gap-3 w-full">
-                <div class="flex gap-3">
-                    <input type="text" id="name" placeholder="Name" required
-                        class="w-1/2 h-14 bg-transparent border-2 border-white/20 rounded-xl px-5 outline-none text-white placeholder-white/40 focus:border-[rgba(75,4,84,0.7)] transition-colors">
-                    <input type="email" id="email" placeholder="Email" required
-                        class="w-1/2 h-14 bg-transparent border-2 border-white/20 rounded-xl px-5 outline-none text-white placeholder-white/40 focus:border-[rgba(75,4,84,0.7)] transition-colors">
+        <!-- RIGHT: sendMessage.ts — actual functional form -->
+        <div class="w-full lg:flex-1 rounded-xl overflow-hidden border border-[rgba(75,4,84,0.4)] bg-card font-mono panel-shadow">
+            <!-- Window bar with tab -->
+            <div class="flex items-center bg-black/40 border-b border-[rgba(75,4,84,0.25)]">
+                <!-- Tab -->
+                <div class="flex items-center gap-2 px-4 py-3 border-r border-b-2 border-b-[#e8833a] border-r-[rgba(75,4,84,0.25)] bg-card text-xs text-[#e8e8f0]">
+                    <span class="text-[#2b7489] font-bold text-[10px]">TS</span>
+                    sendMessage.ts
+                    <span class="text-[#8888aa] ml-1 hover:text-white cursor-pointer">×</span>
                 </div>
-                <textarea id="message" placeholder="Message" required
-                    class="w-full h-60 bg-transparent border-2 border-white/20 rounded-xl p-5 outline-none text-white placeholder-white/40 resize-none focus:border-[rgba(75,4,84,0.7)] transition-colors"></textarea>
-                <button type="submit" class="flex items-center justify-center gap-2 bg-[rgb(75,4,84)] text-white font-sans font-semibold rounded-xl px-6 py-3.5 cursor-pointer transition-all hover:bg-[#6a0dad] shadow-[0_0_20px_rgba(75,4,84,0.4)]">
-                    Send <i class="uil uil-message rotate-[-45deg] text-lg"></i>
-                </button>
+                <div class="flex-1"></div>
+            </div>
+
+            <!-- Form as code -->
+            <form id="contact-form" class="px-4 py-5 text-[13px] leading-[1.85]">
+
+                <!-- Comment -->
+                <div class="flex gap-4 mb-1">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">1</span>
+                    <span class="text-[#546e7a] italic">// Run this script to send a message</span>
+                </div>
+
+                <!-- const send = async () => { -->
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">2</span>
+                    <span>
+                        <span class="text-[#c792ea]">const</span>
+                        <span class="text-[#82aaff]"> send</span>
+                        <span class="text-white"> = </span>
+                        <span class="text-[#c792ea]">async</span>
+                        <span class="text-white"> () </span>
+                        <span class="text-[#89ddff]">⇒</span>
+                        <span class="text-white"> {</span>
+                    </span>
+                </div>
+
+                <!-- blank line -->
+                <div class="flex gap-4"><span class="text-[#444466] min-w-[20px] text-right select-none">3</span><span>&nbsp;</span></div>
+
+                <!-- name input line -->
+                <div class="flex gap-4 items-center">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">4</span>
+                    <div class="flex items-center gap-0 w-full flex-wrap">
+                        <span class="text-[#c792ea] mr-1">&nbsp;&nbsp;const</span>
+                        <span class="text-[#ffcb6b] mr-1">name</span>
+                        <span class="text-white mr-1">=</span>
+                        <span class="text-[#4ec94e] mr-0">"</span>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Your Name"
+                            required
+                            autocomplete="off"
+                            class="flex-1 min-w-[120px] bg-transparent border-none outline-none text-white placeholder-[#8888aa] font-mono text-[13px] px-1"
+                        />
+                        <span class="text-[#4ec94e]">";</span>
+                    </div>
+                </div>
+
+                <!-- blank line -->
+                <div class="flex gap-4"><span class="text-[#444466] min-w-[20px] text-right select-none">5</span><span>&nbsp;</span></div>
+
+                <!-- email input line -->
+                <div class="flex gap-4 items-center">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">6</span>
+                    <div class="flex items-center gap-0 w-full flex-wrap">
+                        <span class="text-[#c792ea] mr-1">&nbsp;&nbsp;const</span>
+                        <span class="text-[#ffcb6b] mr-1">email</span>
+                        <span class="text-white mr-1">=</span>
+                        <span class="text-[#4ec94e] mr-0">"</span>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="your@email.com"
+                            required
+                            autocomplete="off"
+                            class="flex-1 min-w-[120px] bg-transparent border-none outline-none text-white placeholder-[#8888aa] font-mono text-[13px] px-1"
+                        />
+                        <span class="text-[#4ec94e]">";</span>
+                    </div>
+                </div>
+
+                <!-- blank line -->
+                <div class="flex gap-4"><span class="text-[#444466] min-w-[20px] text-right select-none">7</span><span>&nbsp;</span></div>
+
+                <!-- await api.submit({ -->
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">8</span>
+                    <span>
+                        <span class="text-[#c792ea]">&nbsp;&nbsp;await</span>
+                        <span class="text-[#82aaff]"> api</span>
+                        <span class="text-white">.</span>
+                        <span class="text-[#ffcb6b]">submit</span>
+                        <span class="text-white">({</span>
+                    </span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">9</span>
+                    <span class="text-[#e8833a]">&nbsp;&nbsp;&nbsp;&nbsp;name, email,</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">10</span>
+                    <span>
+                        <span class="text-[#e8833a]">&nbsp;&nbsp;&nbsp;&nbsp;message</span>
+                        <span class="text-white"> : </span>
+                        <span class="text-[#4ec94e]">`</span>
+                    </span>
+                </div>
+
+                <!-- textarea message -->
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right self-start pt-1 select-none">11</span>
+                    <textarea
+                        id="message"
+                        placeholder="Type your message here..."
+                        required
+                        rows="4"
+                        class="flex-1 bg-[rgba(75,4,84,0.08)] border border-[rgba(75,4,84,0.3)] rounded-lg p-3 outline-none text-white placeholder-[#8888aa] resize-none font-mono text-[13px] leading-relaxed focus:border-[rgba(75,4,84,0.7)] focus:bg-[rgba(75,4,84,0.12)] transition-all"
+                    ></textarea>
+                </div>
+
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">12</span>
+                    <span class="text-[#4ec94e]">&nbsp;&nbsp;&nbsp;&nbsp;`</span><span class="text-white">});</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-[#444466] min-w-[20px] text-right select-none">13</span>
+                    <span class="text-white">}</span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-5 ml-8">
+                    <button
+                        type="submit"
+                        class="flex items-center gap-2.5 bg-[#1a7a3a] hover:bg-[#1e9444] text-white font-mono font-semibold text-sm px-6 py-2.5 rounded-lg transition-all shadow-[0_0_16px_rgba(30,148,68,0.3)] hover:shadow-[0_0_24px_rgba(30,148,68,0.45)] cursor-pointer border border-[rgba(30,148,68,0.4)]"
+                    >
+                        <span class="text-[#28c840] text-base">▶</span>
+                        RUN SCRIPT
+                    </button>
+                </div>
+
             </form>
         </div>
+
     </div>
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="flex justify-center items-center flex-col gap-8 bg-card py-10 pb-16">
-    <p class="text-2xl font-semibold font-sans text-[#e8e8f0]">Yoensi Manuel Arias Ogando</p>
-    <ul class="flex gap-2">
-        <li class="list-none"><a href="#home" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Home</a></li>
-        <li class="list-none"><a href="#projects" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Projects</a></li>
-        <li class="list-none"><a href="#contact" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Contact</a></li>
+<footer class="flex justify-center items-center flex-col gap-6 md:gap-8 bg-card py-10 pb-14 md:pb-16 px-5 text-center">
+    <p class="text-xl md:text-2xl font-semibold font-sans text-[#e8e8f0]">Yoensi Manuel Arias Ogando</p>
+    <ul class="flex flex-wrap justify-center gap-1 md:gap-2">
+        <li class="list-none"><a href="#home" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-3 md:px-5 no-underline transition-colors">Home</a></li>
+        <li class="list-none"><a href="#projects" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-3 md:px-5 no-underline transition-colors">Projects</a></li>
+        <li class="list-none"><a href="#contact" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-3 md:px-5 no-underline transition-colors">Contact</a></li>
     </ul>
-    <div class="flex gap-8">
+    <div class="flex gap-6 md:gap-8">
         <a href="https://instagram.com/yoelwxq" target="_blank" rel="noopener" class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-instagram"></i></a>
         <a href="https://www.linkedin.com/in/yoensi-arias-248b32299/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-linkedin-alt"></i></a>
         <a href="https://github.com/notgaabo" target="_blank" rel="noopener" class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-github-alt"></i></a>
@@ -336,7 +635,7 @@
 </footer>
 
 <!-- Scripts -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
 <script src="assets/js/main.js"></script>
 
 <script>
@@ -477,7 +776,6 @@ document.getElementById("contact-form").addEventListener("submit", function(e){
         message:"Thank you for reaching out! I'll get back to you as soon as possible."
     }))
     .then(()=>{
-        alert("Message sent successfully!");
         document.getElementById("contact-form").reset();
     })
     .catch((error)=>{
