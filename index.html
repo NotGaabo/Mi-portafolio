@@ -3,345 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- --------- UNICONS ---------- -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <!-- --------- CSS ---------- -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- --------- FAVICON ---------- -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-    <title>Portfolio | Yoensi Manuel</title>
-    <style>
-        /* Estilos personalizados para los botones de CV */
-        .btn.cv-button {
-            color: #000 !important;
-            transition: color 0.3s ease;
-        }
-        .btn.cv-button:hover {
-            color: #fff !important;
-        }
-        .btn.cv-button i {
-            color: inherit;
-        }
-    </style>
-</head>
-<body>
-   <div class="container">
-    <!-- --------------- HEADER --------------- -->
-      <nav id="header">
-        <div class="nav-logo">
-            <p class="nav-name">Yoensi Manuel</p>
-            <span>.</span>
-        </div>
-        <div class="nav-menu" id="myNavMenu">
-            <ul class="nav_menu_list">
-                <li class="nav_list">
-                    <a href="#home" class="nav-link active-link">Hogar</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#about" class="nav-link">Sobre mí</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#projects" class="nav-link">Proyectos</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#contact" class="nav-link">Contacto</a>
-                    <div class="circle"></div>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-button">
-            <a href="assets/pdf/cv_yoensi_arias.pdf" download class="btn cv-button" style="text-decoration: none;">Descargar CV <i class="uil uil-file-alt"></i></a>
-        </div>
-        <div class="nav-menu-btn">
-            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
-        </div>
-      </nav>
-
-    <!-- -------------- MAIN ---------------- -->
-    <main class="wrapper">
-       <!-- -------------- FEATURED BOX ---------------- -->
-       <section class="featured-box" id="home">
-          <div class="featured-text">
-            <div class="featured-text-card">
-                <span>Yoensi Manuel Arias Ogando</span>
-            </div>
-            <div class="featured-name">
-                <p>Soy <span class="typedText"></span></p>
-            </div>
-            <div class="featured-text-info">
-                <p>
-                    Soy una persona motivada, disciplinada y con gran disposición para aprender. 
-                    Me caracterizo por ser organizado, comprometido y creativo. 
-                    Actualmente estudio Ingeniería de Software (Bachiller Técnico en Desarrollo y 
-                    Administración de Aplicaciones Informáticas, 2023 - 2026). 
-                    Me gusta enfrentar desafíos que me permitan crecer y aportar en cualquier proyecto 
-                    o equipo de trabajo.
-                </p>
-            </div>
-            <div class="featured-text-btn">
-                <button class="btn blue-btn">Contrátame</button>
-                <a href="assets/pdf/cv_yoensi_arias.pdf" download class="btn cv-button" style="text-decoration: none;">Descargar CV <i class="uil uil-file-alt"></i></a>
-            </div>
-            <div class="social_icons">
-                <div class="icon"><i class="uil uil-instagram"></i></div>
-                <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
-                <div class="icon"><i class="uil uil-dribbble"></i></div>
-                <div class="icon"><i class="uil uil-github-alt"></i></div>
-            </div>
-          </div>
-          
-          <div class="scroll-icon-box">
-            <a href="#about" class="scroll-btn">
-                <i class="uil uil-mouse-alt"></i>
-                <p>Desplázate hacia abajo</p>
-            </a>
-          </div>
-       </section>
-
-       <!-- -------------- ABOUT BOX ---------------- -->
-       <section class="section" id="about">
-          <div class="top-header">
-            <h1>Sobre Mí</h1>
-          </div>
-          <div class="row">
-            <div class="col">
-                <div class="about-info">
-                    <h3>Mi introducción</h3>
-                    <p>
-                        Tengo experiencia en el desarrollo de proyectos web y de escritorio utilizando 
-                        tecnologías como Python, Kotlin, HTML, CSS y SQL. 
-                        También he trabajado en un sistema de inventario con QR (Flask + MySQL) implementando 
-                        notificaciones de stock bajo y reportes PDF de ventas. 
-                        Poseo habilidades en comunicación, trabajo en equipo y me esfuerzo por seguir aprendiendo cada día.
-                    </p>
-                    <br>
-                    <div class="about-btn">
-                        <a href="assets/pdf/cv_yoensi_arias.pdf" download class="btn cv-button" style="text-decoration: none;">Descargar CV <i class="uil uil-import"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <!-- Frontend Skills -->
-                <div class="skills-box">
-                    <div class="skills-header"><h3>Frontend</h3></div>
-                    <div class="skills-list">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Tailwind CSS</span>
-                        <span>JavaScript</span>
-                        <span>React</span>
-                    </div>
-                </div>
-                <!-- Backend & Mobile Skills -->
-                <div class="skills-box">
-                    <div class="skills-header"><h3>Backend & Mobile</h3></div>
-                    <div class="skills-list">
-                        <span>PHP</span>
-                        <span>Python</span>
-                        <span>Kotlin</span>
-                        <span>Flutter</span>
-                        <span>Dart</span>
-                    </div>
-                </div>
-                <!-- Database Skills -->
-                <div class="skills-box">
-                    <div class="skills-header"><h3>Databases</h3></div>
-                    <div class="skills-list">
-                        <span>MySQL</span>
-                        <span>SQL Server</span>
-                    </div>
-                </div>
-                <!-- Soft Skills -->
-                <div class="skills-box">
-                    <div class="skills-header"><h3>Soft Skills</h3></div>
-                    <div class="skills-list">
-                        <span>Comunicación</span>
-                        <span>Trabajo en equipo</span>
-                        <span>Ganas de aprender</span>
-                        <span>Inglés básico</span>
-                    </div>
-                </div>
-            </div>
-          </div>
-       </section>
-
-       <!-- -------------- PROJECT BOX ---------------- -->
-       <!-- -------------- PROJECT BOX ---------------- -->
-       <section class="section" id="projects">
-          <div class="top-header">
-              <h1>Proyectos</h1>
-          </div>
-          <div class="project-container">
-            <div class="project-box">
-                <i class="uil uil-briefcase-alt"></i>
-                <h3>Completados</h3>
-                <label id="completed-projects">Loading...</label>
-            </div>
-            <div class="project-box">
-                <i class="uil uil-users-alt"></i>
-                <h3>Clientes</h3>
-                <label id="clients-helped">Loading...</label>
-            </div>
-            <div class="project-box">
-                <i class="uil uil-award"></i>
-                <h3>Experience</h3>
-                <label id="experience-years">2+ Años</label>
-            </div>
-          </div>
-       </section>
-
-       <!-- -------------- CONTACT BOX ---------------- --><!-- -------------- CONTACT BOX ---------------- -->
-<section class="section" id="contact">
-  <div class="top-header">
-    <h1>Ponte en contacto</h1>
-    <span>Si tienes un proyecto en mente, contáctame ahora.</span>
-  </div>
-  <div class="row">
-     <!-- Contact Info -->
-     <div class="col">
-        <div class="contact-info">
-            <h2>Envíame <i class="uil uil-corner-right-down"></i></h2>
-            <p><i class="uil uil-envelope"></i> Email: yoensiar@gmail.com</p>
-            <p><i class="uil uil-phone"></i> Tel: +1 (849) 460-6390</p>
-            <p><i class="uil uil-map-marker"></i> Ensanche Espaillat, C/ Interior J #68</p>
-        </div>
-     </div>
-
-     <!-- Contact Form -->
-     <div class="col">
-        <form id="contact-form" class="form-control">
-            <div class="form-inputs">
-                <input type="text" id="name" class="input-field" placeholder="Nombre" required>
-                <input type="email" id="email" class="input-field" placeholder="Email" required>
-            </div>
-            <div class="text-area">
-                <textarea id="message" placeholder="Mensaje" required></textarea>
-            </div>
-            <div class="form-button">
-                <button type="submit" class="btn">Enviar <i class="uil uil-message"></i></button>
-            </div>
-        </form>
-     </div>
-  </div>
-</section>
-
-    </main>
-
-    <!-- --------------- FOOTER --------------- -->
-    <footer>
-        <div class="top-footer">
-            <p>Yoensi Manuel Arias Ogando</p>
-        </div>
-        <div class="middle-footer">
-            <ul class="footer-menu">
-                <li class="footer_menu_list"><a href="#home">Hogar</a></li>
-                <li class="footer_menu_list"><a href="#about">Sobre mí</a></li>
-                <li class="footer_menu_list"><a href="#projects">Proyectos</a></li>
-                <li class="footer_menu_list"><a href="#contact">Contacto</a></li>
-            </ul>
-        </div>
-        <div class="footer-social-icons">
-            <div class="icon"><i class="uil uil-instagram"></i></div>
-            <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
-            <div class="icon"><i class="uil uil-dribbble"></i></div>
-            <div class="icon"><i class="uil uil-github-alt"></i></div>
-        </div>
-        <div class="bottom-footer">
-            <p>Copyright © <a href="#home" style="text-decoration: none;">Yoensi Manuel Arias Ogando</a> - Todos los derechos reservados </p>
-        </div>
-    </footer>
-    </div>
-
-    <!-- ----- TYPING JS Link ----- -->
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <!-- ----- SCROLL REVEAL JS Link----- -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- ----- MAIN JS ----- -->
-    <script src="assets/js/main.js"></script>
-    <!-- ----- CUSTOM JS FOR EXPERIENCE AND GITHUB API ----- -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        function updateExperience() {
-            const startYear = 2023;
-            const currentYear = new Date().getFullYear();
-            const yearsOfExperience = currentYear - startYear;
-            document.getElementById('experience-years').textContent = `${yearsOfExperience}+ Años`;
-        }
-        async function fetchGitHubRepos() {
-            try {
-                const response = await fetch('https://api.github.com/users/notgaabo');
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const data = await response.json();
-                const repoCount = data.public_repos || 0;
-                const displayCount = repoCount > 0 ? repoCount : 15;
-                document.getElementById('completed-projects').textContent = `${displayCount}+ Proyectos Terminados`;
-                document.getElementById('clients-helped').textContent = `${displayCount}+ Clientes Felices`;
-            } catch (error) {
-                document.getElementById('completed-projects').textContent = '15+ Proyectos Terminados';
-                document.getElementById('clients-helped').textContent = '15+ Clientes Felices';
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: 'rgb(75,4,84)',
+                        'brand-light': 'rgba(75,4,84,0.18)',
+                        dark: '#13131a',
+                        card: '#1c1c25',
+                    },
+                    fontFamily: {
+                        mono: ['"Fira Code"', 'monospace'],
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    animation: {
+                        'cursor-blink': 'cursorBlink 1.2s step-end infinite',
+                        'bounce-down': 'bounceDown 2s ease-in-out infinite',
+                        'status-pulse': 'statusPulse 2s ease-in-out infinite',
+                        'fade-up-1': 'fadeUp 0.6s ease 0.15s both',
+                        'fade-up-2': 'fadeUp 0.6s ease 0.3s both',
+                        'fade-up-3': 'fadeUp 0.6s ease 0.45s both',
+                        'fade-up-4': 'fadeUp 0.6s ease 0.6s both',
+                        'fade-up-5': 'fadeUp 0.6s ease 0.75s both',
+                        'fade-up-6': 'fadeUp 0.6s ease 0.9s both',
+                        'fade-panel': 'fadeUp 0.7s ease 0.55s both',
+                    },
+                    keyframes: {
+                        cursorBlink: { '0%,100%': { opacity: '1' }, '50%': { opacity: '0' } },
+                        bounceDown: {
+                            '0%,100%': { transform: 'translateX(-50%) translateY(0)' },
+                            '50%': { transform: 'translateX(-50%) translateY(8px)' }
+                        },
+                        statusPulse: { '0%,100%': { opacity: '1' }, '50%': { opacity: '0.3' } },
+                        fadeUp: { 'from': { opacity: '0', transform: 'translateY(20px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
+                    }
+                }
             }
         }
-        window.onload = function() {
-            updateExperience();
-            fetchGitHubRepos();
-            if (typeof myMenuFunction === 'function') myMenuFunction();
-        };
     </script>
-    <!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Portfolio | Yoensi Manuel</title>
+</head>
+<body class="bg-dark text-white overflow-x-hidden m-0 p-0">
+
+<!-- ===================== NAV ===================== -->
+<nav id="header" class="fixed top-0 left-0 w-full h-[90px] flex items-center justify-between px-[9vw] z-50 transition-all duration-300 bg-transparent">
+    <div class="relative">
+        <p class="text-3xl font-semibold text-white font-sans">Yoensi Manuel</p>
+        <span class="absolute -top-4 -right-5 text-5xl text-white/30">.</span>
+    </div>
+
+    <div class="nav-menu hidden md:flex" id="myNavMenu">
+        <ul class="flex gap-2">
+            <li class="relative"><a href="#home" class="nav-link active-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Hogar</a></li>
+            <li class="relative"><a href="#projects" class="nav-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Proyectos</a></li>
+            <li class="relative"><a href="#contact" class="nav-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Contacto</a></li>
+        </ul>
+    </div>
+
+    <a href="assets/pdf/cv_yoensi_arias.pdf" download class="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/20 bg-white/5 text-white text-sm font-medium hover:bg-[rgb(75,4,84)] hover:border-[rgb(75,4,84)] transition-all no-underline">
+        Descargar CV <i class="uil uil-file-alt"></i>
+    </a>
+
+    <div class="md:hidden flex items-center">
+        <i class="uil uil-bars text-3xl text-white cursor-pointer" onclick="myMenuFunction()"></i>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="hidden fixed top-[90px] left-0 w-full min-h-[450px] bg-dark/95 backdrop-blur-xl z-40 flex-col items-center justify-center gap-8">
+    <a href="#home" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Hogar</a>
+    <a href="#projects" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Proyectos</a>
+    <a href="#contact" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Contacto</a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="relative flex items-center justify-between w-full min-h-screen px-[8vw] gap-10 bg-dark overflow-hidden box-border" style="padding-top:90px;">
+    <!-- Glow orbs -->
+    <div class="absolute -top-44 -left-28 w-[560px] h-[560px] rounded-full pointer-events-none z-0" style="background:radial-gradient(circle,rgba(75,4,84,0.3) 0%,transparent 70%)"></div>
+    <div class="absolute -bottom-40 -right-28 w-[480px] h-[480px] rounded-full pointer-events-none z-0" style="background:radial-gradient(circle,rgba(75,4,84,0.18) 0%,transparent 70%)"></div>
+
+    <!-- LEFT -->
+    <div class="relative z-10 flex flex-col justify-center w-full md:w-1/2">
+        <!-- Headline -->
+        <div class="animate-fade-up-2 mb-3">
+            <h1 class="font-sans font-bold leading-[1.1] text-white m-0" style="font-size:clamp(38px,5vw,64px);">
+                Hola, soy<br>
+                <span class="gradient-name">Yoensi Manuel</span>
+            </h1>
+        </div>
+
+        <!-- Role -->
+        <div class="animate-fade-up-3 font-mono text-[15px] text-[#e8833a] mb-6">
+            <span class="text-[#8888aa]">&lt;</span>Ing. Software<span class="text-[#8888aa]"> /&gt;</span>
+            <span class="text-white"> Desarrollando el Futuro.</span>
+        </div>
+
+        <!-- Description -->
+        <p class="animate-fade-up-4 text-sm text-[#8888aa] leading-[1.75] max-w-[430px] mb-7">
+            Estudiante de Ingeniería de Software apasionado por el desarrollo web y móvil.
+            Especializado en Python, Kotlin, React y SQL. Organizado, creativo y siempre
+            dispuesto a crecer y aportar en cada proyecto.
+        </p>
+
+        <!-- Tech modules -->
+        <div class="animate-fade-up-5 flex items-center flex-wrap gap-2 mb-7">
+            <span class="font-mono text-[10px] tracking-widest text-[#8888aa]">MÓDULOS_CARGADOS:</span>
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Python</span>
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Kotlin</span>
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">React</span>
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Flutter</span>
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">MySQL</span>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="animate-fade-up-5 flex flex-wrap gap-3 mb-10">
+            <button class="flex items-center gap-2 bg-[rgb(75,4,84)] border-none text-white font-sans text-sm font-semibold rounded-lg px-5 py-3 cursor-pointer transition-all shadow-[0_0_20px_rgba(75,4,84,0.45)] hover:bg-[#6a0dad] hover:shadow-[0_0_30px_rgba(160,32,200,0.55)] hover:-translate-y-px">
+                <i class="uil uil-rocket"></i> Contrátame
+            </button>
+            <a href="assets/pdf/cv_yoensi_arias.pdf" download class="flex items-center gap-2 bg-transparent text-[#e8e8f0] border border-white/15 font-sans text-sm font-medium rounded-lg px-5 py-3 no-underline transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#e8b4ff] hover:bg-[rgba(75,4,84,0.1)]">
+                <i class="uil uil-file-alt"></i> Descargar CV
+            </a>
+        </div>
+
+        <!-- Social icons -->
+        <div class="animate-fade-up-6 flex gap-3">
+            <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-instagram text-base"></i></div>
+            <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-linkedin-alt text-base"></i></div>
+            <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-dribbble text-base"></i></div>
+            <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-github-alt text-base"></i></div>
+        </div>
+    </div>
+
+    <!-- RIGHT — Code Panel -->
+    <div class="animate-fade-panel relative z-10 w-full md:w-1/2 flex justify-end items-center">
+        <div class="panel-shadow w-full max-w-[520px] rounded-xl overflow-hidden border border-[rgba(75,4,84,0.4)] bg-card font-mono">
+            <!-- Window bar -->
+            <div class="flex items-center justify-between px-4 py-3 bg-black/30 border-b border-[rgba(75,4,84,0.2)]">
+                <div class="flex gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-[#8888aa]">
+                    <span class="animate-status-pulse w-1.5 h-1.5 rounded-full bg-[#e8833a] shadow-[0_0_6px_#e8833a]"></span>
+                    portfolio.tsx
+                </div>
+                <div class="w-16"></div>
+            </div>
+
+            <!-- Code body -->
+            <div class="px-6 py-5 text-[13px] leading-[1.9]">
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">1</span><span class="text-[#546e7a]">// Bienvenido a mi espacio de trabajo</span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">2</span><span><span class="text-[#c792ea]">import</span><span class="text-white"> { </span><span class="text-[#69b5ff]">Developer</span><span class="text-white"> } </span><span class="text-[#c792ea]">from</span><span class="text-[#4ec94e]"> './universe'</span><span class="text-white">;</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">3</span><span>&nbsp;</span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">4</span><span><span class="text-[#c792ea]">const</span><span class="text-[#82aaff]"> Portfolio</span><span class="text-white"> = () =&gt; {</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">5</span><span>&nbsp;&nbsp;<span class="text-[#c792ea]">return</span> <span class="text-white">(</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">6</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">&lt;Developer</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">7</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">name</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Yoensi Arias"</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">8</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">role</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Ing. Software"</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">9</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">pasión</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Desarrollando el Futuro"</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">/&gt;</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">11</span><span>&nbsp;&nbsp;<span class="text-white">);</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">12</span><span><span class="text-white">};</span><span class="inline-block w-0.5 h-3.5 bg-[#c792ea] ml-0.5 align-middle animate-cursor-blink"></span></span></div>
+            </div>
+
+            <!-- Panel buttons -->
+            <div class="flex gap-2.5 px-6 pb-5 pt-3.5 border-t border-[rgba(75,4,84,0.2)]">
+                <a href="#about" class="flex items-center gap-2 bg-[rgb(75,4,84)] text-white font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all shadow-[0_0_14px_rgba(75,4,84,0.4)] hover:bg-[#6a0dad]">
+                    <i class="uil uil-play text-sm"></i> Ver Perfil
+                </a>
+                <a href="#projects" class="flex items-center gap-2 bg-transparent text-[#d0d0e8] border border-white/10 font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all hover:border-[rgba(75,4,84,0.6)] hover:text-[#d070f0]">
+                    <i class="uil uil-folder-open text-sm"></i> Ver Proyectos
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll arrow -->
+    <a href="#projects" class="animate-bounce-down absolute bottom-7 left-1/2 z-10 flex flex-col items-center gap-1 no-underline text-[#8888aa] text-xs">
+        <i class="uil uil-angle-down text-3xl"></i>
+    </a>
+</section>
+
+<!-- ===================== PROJECTS — GIT LOG ===================== -->
+<section id="projects" class="bg-dark py-20 px-[8vw] w-full box-border overflow-x-hidden">
+    <div class="text-center mb-16">
+        <h1 class="text-2xl font-bold text-[#e8e8f0] font-sans mb-2">Proyectos</h1>
+        <span class="text-[#8888aa] text-sm">Repositorios destacados desde GitHub</span>
+    </div>
+
+    <div class="flex items-center gap-2.5 flex-wrap mb-12 font-mono font-semibold text-[#e8e8f0]" style="font-size:clamp(15px,2vw,22px)">
+        <span class="text-[#e8833a]">⎇</span>
+        <span>$ git log</span>
+        <span class="text-[#8888aa]">--stat --oneline</span>
+    </div>
+
+    <div class="git-timeline relative flex flex-col gap-14 pb-5" id="git-timeline">
+        <div class="text-center font-mono text-[#8888aa] py-16 text-sm">
+            <span class="text-[#e8833a]">$</span> Cargando repos de <span class="text-[#c792ea]">NotGaabo</span>...
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="py-20 px-[10vw] bg-dark">
+    <div class="text-center mb-16">
+        <h1 class="text-2xl font-bold text-[#e8e8f0] font-sans mb-2">Ponte en contacto</h1>
+        <span class="text-[#8888aa] text-sm">Si tienes un proyecto en mente, contáctame ahora.</span>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between gap-12">
+        <!-- Info -->
+        <div class="flex w-full md:w-1/2">
+            <div class="relative flex flex-col justify-center items-center w-full py-8 px-8 bg-[rgb(75,4,84)] rounded-xl shadow-lg overflow-hidden group">
+                <h2 class="text-white text-xl font-semibold mb-5 font-sans">Envíame <i class="uil uil-corner-right-down"></i></h2>
+                <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-envelope text-lg"></i> yoensiar@gmail.com</p>
+                <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-phone text-lg"></i> +1 (849) 460-6390</p>
+                <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-map-marker text-lg"></i> Ensanche Espaillat, C/ Interior J #68</p>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="flex w-full md:w-1/2">
+            <form id="contact-form" class="flex flex-col gap-3 w-full">
+                <div class="flex gap-3">
+                    <input type="text" id="name" placeholder="Nombre" required
+                        class="w-1/2 h-14 bg-transparent border-2 border-white/20 rounded-xl px-5 outline-none text-white placeholder-white/40 focus:border-[rgba(75,4,84,0.7)] transition-colors">
+                    <input type="email" id="email" placeholder="Email" required
+                        class="w-1/2 h-14 bg-transparent border-2 border-white/20 rounded-xl px-5 outline-none text-white placeholder-white/40 focus:border-[rgba(75,4,84,0.7)] transition-colors">
+                </div>
+                <textarea id="message" placeholder="Mensaje" required
+                    class="w-full h-60 bg-transparent border-2 border-white/20 rounded-xl p-5 outline-none text-white placeholder-white/40 resize-none focus:border-[rgba(75,4,84,0.7)] transition-colors"></textarea>
+                <button type="submit" class="flex items-center justify-center gap-2 bg-[rgb(75,4,84)] text-white font-sans font-semibold rounded-xl px-6 py-3.5 cursor-pointer transition-all hover:bg-[#6a0dad] shadow-[0_0_20px_rgba(75,4,84,0.4)]">
+                    Enviar <i class="uil uil-message rotate-[-45deg] text-lg"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="flex justify-center items-center flex-col gap-8 bg-card py-10 pb-16">
+    <p class="text-2xl font-semibold font-sans text-[#e8e8f0]">Yoensi Manuel Arias Ogando</p>
+    <ul class="flex gap-2">
+        <li class="list-none"><a href="#home" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Hogar</a></li>
+        <li class="list-none"><a href="#projects" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Proyectos</a></li>
+        <li class="list-none"><a href="#contact" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Contacto</a></li>
+    </ul>
+    <div class="flex gap-8">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-instagram"></i></div>
+        <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-linkedin-alt"></i></div>
+        <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-dribbble"></i></div>
+        <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-github-alt"></i></div>
+    </div>
+    <p class="text-sm text-[#8888aa] mt-2">
+        Copyright © <a href="#home" class="no-underline text-[#8888aa] hover:text-[#d070f0] transition-colors">Yoensi Manuel Arias Ogando</a> - Todos los derechos reservados
+    </p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="assets/js/main.js"></script>
+
 <script>
-(function(){
-   emailjs.init("_t0UJvcQfLC-tAoA6"); 
-})();
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('header');
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(19,19,26,0.95)';
+            nav.style.backdropFilter = 'blur(12px)';
+            nav.style.boxShadow = '0 1px 20px rgba(0,0,0,0.4)';
+        } else {
+            nav.style.background = 'transparent';
+            nav.style.backdropFilter = '';
+            nav.style.boxShadow = 'none';
+        }
+    });
 
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+    // Mobile menu toggle
+    function myMenuFunction() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+    }
 
-    const name = document.getElementById("name").value;
-    const userEmail = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-    const tiempo = new Date().toLocaleString();
-
-    // ---------------------------------------
-    // 1️⃣ Email al propietario
-    // ---------------------------------------
-    const paramsOwner = {
-        from_name: name,
-        email_id: userEmail,  // debe coincidir con {{email_id}} en la plantilla
-        message: message,
-        tiempo: tiempo
+    // ===== GITHUB PROJECTS =====
+    const LANG_COLORS = {
+        JavaScript:'#f1e05a', Python:'#3572A5', Kotlin:'#A97BFF',
+        HTML:'#e34c26', CSS:'#563d7c', TypeScript:'#2b7489',
+        Java:'#b07219', Dart:'#00B4AB', PHP:'#4F5D95', Shell:'#89e051'
     };
 
-    emailjs.send("service_puwc7eg", "template_00vxroi", paramsOwner)
-    .then(res => {
-        console.log("Mensaje enviado al propietario correctamente");
+    function fakeHash(s){
+        let h=0; for(let i=0;i<s.length;i++) h=(Math.imul(31,h)+s.charCodeAt(i))|0;
+        return Math.abs(h).toString(16).substring(0,7);
+    }
+    function fmtDate(iso){ return iso ? new Date(iso).toISOString().substring(0,7) : 'N/A'; }
 
-        // ---------------------------------------
-        // 2️⃣ Email de confirmación al usuario
-        // ---------------------------------------
-        const paramsUser = {
-            email: userEmail,              // To Email en la plantilla
-            from_name: "Yoensi Arias",     // From Name
-            from_email: "tu-correo@gmail.com", // From Email (verificado en EmailJS)
-            message: "¡Gracias por contactarme! Hemos recibido tu mensaje correctamente y te responderé lo antes posible."
-        };
+    function buildCard(repo){
+        const hash = fakeHash(repo.name);
+        const branch = repo.name.toLowerCase().replace(/[^a-z0-9]/g,'-').substring(0,20);
+        const topics = (repo.topics||[]).slice(0,5);
+        const adds = Math.floor(Math.random()*180)+20;
+        const dels = Math.floor(Math.random()*25)+3;
+        const lc = LANG_COLORS[repo.language] || '#8888aa';
+        return `
+        <div class="w-full max-w-[460px] bg-card border border-[rgba(75,4,84,0.35)] rounded-xl overflow-hidden font-mono transition-all hover:border-[rgba(75,4,84,0.7)] hover:shadow-[0_0_30px_rgba(75,4,84,0.15)]">
+          <div class="flex items-center justify-between px-3.5 py-2.5 bg-black/30 border-b border-[rgba(75,4,84,0.2)] flex-wrap gap-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs text-[#ffcb6b]">${hash}</span>
+              <span class="text-[11px] px-2.5 py-0.5 rounded bg-[rgba(75,4,84,0.25)] border border-[rgba(75,4,84,0.5)] text-[#c792ea]">HEAD <span class="text-[#89ddff]">→</span> ${branch}</span>
+            </div>
+            <span class="text-[11px] text-[#8888aa]">@NotGaabo</span>
+          </div>
+          <div class="px-4 py-3.5">
+            <div class="font-sans text-[15px] font-bold text-[#e8e8f0] mb-2.5">
+              <a href="${repo.html_url}" target="_blank" rel="noopener" class="text-inherit no-underline hover:text-[#d070f0] transition-colors">
+                ${repo.name} <i class="uil uil-external-link-alt text-xs opacity-60"></i>
+              </a>
+            </div>
+            <div class="text-xs text-[#8888aa] leading-relaxed bg-black/20 border-l-2 border-[rgba(75,4,84,0.5)] px-3 py-2 rounded-r mb-3">${repo.description||'Sin descripción disponible.'}</div>
+            ${topics.length?`<div class="flex flex-wrap gap-1.5 mb-3">${topics.map(t=>`<span class="text-[11px] px-2 py-0.5 rounded border border-[rgba(75,4,84,0.45)] bg-[rgba(75,4,84,0.1)] text-[#c792ea]">${t}</span>`).join('')}</div>`:''}
+            <div class="flex items-center gap-3 flex-wrap pt-2.5 border-t border-[rgba(75,4,84,0.15)] text-[11px] text-[#8888aa]">
+              ${repo.language?`<span class="inline-flex items-center gap-1"><span style="width:10px;height:10px;border-radius:50%;background:${lc};display:inline-block;"></span><span style="color:${lc};">${repo.language}</span></span>`:''}
+              ${repo.stargazers_count?`<span class="text-[#ffcb6b]">★ ${repo.stargazers_count}</span>`:''}
+              ${repo.forks_count?`<span class="text-[#69b5ff]">⑂ ${repo.forks_count}</span>`:''}
+              <span class="ml-auto text-[11px]">📄 <span class="text-[#4ec94e]">+${adds}</span> <span class="text-[#f78c6c]">-${dels}</span></span>
+            </div>
+          </div>
+        </div>`;
+    }
 
-        emailjs.send("service_puwc7eg", "template_1yd2ako", paramsUser)
-        .then(res => {
-            alert("✅ Mensaje enviado con éxito y confirmación al usuario.");
-            document.getElementById("contact-form").reset();
-        })
-        .catch(err => {
-            alert("❌ Error al enviar confirmación: " + JSON.stringify(err));
-        });
+    function renderTimeline(repos){
+        const el = document.getElementById('git-timeline');
+        if(!repos||!repos.length){
+            el.innerHTML='<div class="text-center font-mono text-[#f78c6c] py-16">No se encontraron repositorios.</div>';
+            return;
+        }
+        el.innerHTML = repos.map((r,i)=>{
+            const side = i%2===0?'left':'right';
+            const date = fmtDate(r.updated_at);
+            const label = i===0?`${date} — Presente`:date;
+            return `
+            <div class="git-entry grid items-start" style="grid-template-columns:1fr 110px 1fr;">
+              <div class="git-card-left flex justify-end pr-4.5">${side==='left'?buildCard(r):''}</div>
+              <div class="git-center-col flex flex-col items-center gap-2 pt-3 z-10">
+                <div class="w-4 h-4 rounded-full border-[3px] border-[#e8833a] bg-dark shadow-[0_0_10px_rgba(232,131,58,0.5)] flex-shrink-0"></div>
+                <div class="git-date-badge flex items-center gap-1.5 bg-card border border-[rgba(75,4,84,0.4)] rounded-full px-3 py-1 font-mono text-[11px] text-[#8888aa] whitespace-nowrap">
+                  <i class="uil uil-calendar-alt text-[#e8833a] text-xs"></i>${label}
+                </div>
+              </div>
+              <div class="git-card-right flex justify-start pl-4.5">${side==='right'?buildCard(r):''}</div>
+            </div>`;
+        }).join('');
+    }
 
-    })
-    .catch(err => {
-        alert("❌ Error al enviar al propietario: " + JSON.stringify(err));
-    });
+    async function fetchProjects(){
+        try {
+            const res = await fetch('https://api.github.com/users/NotGaabo/repos?sort=updated&per_page=10');
+            if(!res.ok) throw new Error();
+            let repos = await res.json();
+            repos = repos.filter(r=>!r.fork)
+                .sort((a,b)=>(b.stargazers_count-a.stargazers_count)||new Date(b.updated_at)-new Date(a.updated_at))
+                .slice(0,6);
+            if(!repos.length){
+                const r2 = await fetch('https://api.github.com/users/NotGaabo/repos?sort=updated&per_page=6');
+                repos = await r2.json();
+            }
+            renderTimeline(repos);
+        } catch(e){
+            document.getElementById('git-timeline').innerHTML=`
+            <div class="text-center font-mono py-16">
+              <span class="text-[#f78c6c]">Error al cargar.</span><br>
+              <a href="https://github.com/NotGaabo" target="_blank" class="text-[#c792ea] text-xs">Ver github.com/NotGaabo</a>
+            </div>`;
+        }
+    }
+
+    window.onload = function(){
+        fetchProjects();
+    };
+</script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){ emailjs.init("_t0UJvcQfLC-tAoA6"); })();
+document.getElementById("contact-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name=document.getElementById("name").value;
+    const userEmail=document.getElementById("email").value;
+    const message=document.getElementById("message").value;
+    const tiempo=new Date().toLocaleString();
+    emailjs.send("service_puwc7eg","template_00vxroi",{from_name:name,email_id:userEmail,message,tiempo})
+    .then(()=>emailjs.send("service_puwc7eg","template_1yd2ako",{
+        email:userEmail, from_name:"Yoensi Arias", from_email:"tu-correo@gmail.com",
+        message:"¡Gracias por contactarme! Te responderé lo antes posible."
+    }))
+    .then(()=>{ alert("✅ Mensaje enviado."); document.getElementById("contact-form").reset(); })
+    .catch(err=>alert("❌ Error: "+JSON.stringify(err)));
 });
 </script>
 
