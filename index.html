@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +45,67 @@
             }
         }
     </script>
+    <style>
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #13131a; }
+        ::-webkit-scrollbar-thumb { background: rgba(75,4,84,0.6); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(75,4,84,0.9); }
+        * { scrollbar-width: thin; scrollbar-color: rgba(75,4,84,0.6) #13131a; }
+
+        /* Grid overlay */
+        #home::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(75,4,84,0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(75,4,84,0.08) 1px, transparent 1px);
+            background-size: 44px 44px;
+            pointer-events: none; z-index: 0;
+        }
+
+        /* Gradient name */
+        .gradient-name {
+            background: linear-gradient(90deg, #c040e8, #7b1fa2, #e040fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Panel glow */
+        .panel-shadow {
+            box-shadow: 0 0 0 1px rgba(75,4,84,0.3), 0 24px 70px rgba(0,0,0,0.6), 0 0 80px rgba(75,4,84,0.15);
+        }
+
+        /* Nav link active dot */
+        .active-link { color: #d070f0 !important; }
+        .active-link::after {
+            content: '';
+            position: absolute; left: 50%; bottom: -15px;
+            transform: translate(-50%, -50%);
+            width: 5px; height: 5px;
+            background: #d070f0; border-radius: 50%;
+        }
+
+        /* git-timeline center line */
+        .git-timeline::before {
+            content: '';
+            position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+            background: linear-gradient(to bottom, rgba(75,4,84,0.9), rgba(75,4,84,0.05));
+            transform: translateX(-50%);
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        @media (max-width: 900px) {
+            .git-timeline::before { left: 20px; }
+            .git-entry { grid-template-columns: 44px 1fr !important; gap: 0 !important; }
+            .git-card-left, .git-card-right { grid-column: 2; grid-row: 1; padding: 0 !important; }
+            .git-center-col { grid-column: 1; grid-row: 1; }
+            .git-date-badge { display: none; }
+        }
+    </style>
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Portfolio | Yoensi Manuel</title>
@@ -203,13 +264,13 @@
         <span class="text-[#8888aa]">--stat --oneline</span>
     </div>
 
-    <div class="git-timeline relative flex flex-col gap-14 pb-5" id="git-timeline">
+    <div class="git-timeline relative flex flex-col gap-24 pb-5" id="git-timeline">
         <div class="text-center font-mono text-[#8888aa] py-16 text-sm">
             <span class="text-[#e8833a]">$</span> Loading repos from <span class="text-[#c792ea]">NotGaabo</span>...
         </div>
     </div>
 
-    <!-- Initial commit footer line -->
+    <!-- Initial commit node — centered on timeline -->
     <div class="relative flex justify-center mt-10">
         <!-- timeline line extension -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-6 bg-[rgba(75,4,84,0.5)]"></div>
@@ -278,7 +339,7 @@
 </footer>
 
 <!-- Scripts -->
-<script src="https://unpkg.com/scrollreveal"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/scrollreveal"></script>
 <script src="assets/js/main.js"></script>
 
 <script>
@@ -324,7 +385,7 @@
         const dels = Math.floor(Math.random()*25)+3;
         const lc = LANG_COLORS[repo.language] || '#8888aa';
         return `
-        <div class="w-full max-w-[460px] bg-card border border-[rgba(75,4,84,0.35)] rounded-xl overflow-hidden font-mono transition-all hover:border-[rgba(75,4,84,0.7)] hover:shadow-[0_0_30px_rgba(75,4,84,0.15)]">
+        <div class="w-full max-w-[500px] bg-card border border-[rgba(75,4,84,0.35)] rounded-xl overflow-hidden font-mono transition-all hover:border-[rgba(75,4,84,0.7)] hover:shadow-[0_0_30px_rgba(75,4,84,0.15)]">
           <div class="flex items-center justify-between px-3.5 py-2.5 bg-black/30 border-b border-[rgba(75,4,84,0.2)] flex-wrap gap-1.5">
             <div class="flex items-center gap-2 flex-wrap">
               <span class="text-xs text-[#ffcb6b]">${hash}</span>
@@ -358,18 +419,18 @@
         }
         el.innerHTML = repos.map((r,i)=>{
             const side = i%2===0?'left':'right';
-            const date = fmtDate(r.updated_at);
+            const date = fmtDate(r.pushed_at || r.updated_at);
             const label = i===0?`${date} — Present`:date;
             return `
-            <div class="git-entry grid items-start" style="grid-template-columns:1fr 110px 1fr;">
-              <div class="git-card-left flex justify-end pr-4.5">${side==='left'?buildCard(r):''}</div>
+            <div class="git-entry grid items-start" style="grid-template-columns:1fr 180px 1fr;">
+              <div class="git-card-left flex justify-end" style="padding-right:3rem">${side==='left'?buildCard(r):''}</div>
               <div class="git-center-col flex flex-col items-center gap-2 pt-3 z-10">
                 <div class="w-4 h-4 rounded-full border-[3px] border-[#e8833a] bg-dark shadow-[0_0_10px_rgba(232,131,58,0.5)] flex-shrink-0"></div>
                 <div class="git-date-badge flex items-center gap-1.5 bg-card border border-[rgba(75,4,84,0.4)] rounded-full px-3 py-1 font-mono text-[11px] text-[#8888aa] whitespace-nowrap">
                   <i class="uil uil-calendar-alt text-[#e8833a] text-xs"></i>${label}
                 </div>
               </div>
-              <div class="git-card-right flex justify-start pl-4.5">${side==='right'?buildCard(r):''}</div>
+              <div class="git-card-right flex justify-start" style="padding-left:3rem">${side==='right'?buildCard(r):''}</div>
             </div>`;
         }).join('');
     }
@@ -418,10 +479,15 @@ document.getElementById("contact-form").addEventListener("submit", function(e){
         email:userEmail, from_name:"Yoensi Arias", from_email:"tu-correo@gmail.com",
         message:"Thank you for reaching out! I'll get back to you as soon as possible."
     }))
-    .then(()=>{ alert("✅ Message sent successfully."); document.getElementById("contact-form").reset(); })
-    .catch(err=>alert("❌ Error: "+JSON.stringify(err)));
+    .then(()=>{
+        alert("Message sent successfully!");
+        document.getElementById("contact-form").reset();
+    })
+    .catch((error)=>{
+        console.error("EmailJS error:", error);
+        alert("Failed to send message. Please try again later.");
+    });
 });
 </script>
-
 </body>
 </html>
