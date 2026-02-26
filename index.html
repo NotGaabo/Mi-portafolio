@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,14 +60,14 @@
 
     <div class="nav-menu hidden md:flex" id="myNavMenu">
         <ul class="flex gap-2">
-            <li class="relative"><a href="#home" class="nav-link active-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Hogar</a></li>
-            <li class="relative"><a href="#projects" class="nav-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Proyectos</a></li>
-            <li class="relative"><a href="#contact" class="nav-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Contacto</a></li>
+            <li class="relative"><a href="#home" class="nav-link active-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Home</a></li>
+            <li class="relative"><a href="#projects" class="nav-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Projects</a></li>
+            <li class="relative"><a href="#contact" class="nav-link relative text-white/70 hover:text-[#d070f0] font-medium px-4 py-2 transition-colors">Contact</a></li>
         </ul>
     </div>
 
     <a href="assets/pdf/cv_yoensi_arias.pdf" download class="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/20 bg-white/5 text-white text-sm font-medium hover:bg-[rgb(75,4,84)] hover:border-[rgb(75,4,84)] transition-all no-underline">
-        Descargar CV <i class="uil uil-file-alt"></i>
+        Download CV <i class="uil uil-file-alt"></i>
     </a>
 
     <div class="md:hidden flex items-center">
@@ -77,9 +77,9 @@
 
 <!-- Mobile menu -->
 <div id="mobileMenu" class="hidden fixed top-[90px] left-0 w-full min-h-[450px] bg-dark/95 backdrop-blur-xl z-40 flex-col items-center justify-center gap-8">
-    <a href="#home" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Hogar</a>
-    <a href="#projects" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Proyectos</a>
-    <a href="#contact" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Contacto</a>
+    <a href="#home" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Home</a>
+    <a href="#projects" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Projects</a>
+    <a href="#contact" class="text-white/70 hover:text-[#d070f0] text-lg font-medium transition-colors" onclick="myMenuFunction()">Contact</a>
 </div>
 
 <!-- ===================== HERO ===================== -->
@@ -93,50 +93,49 @@
         <!-- Headline -->
         <div class="animate-fade-up-2 mb-3">
             <h1 class="font-sans font-bold leading-[1.1] text-white m-0" style="font-size:clamp(38px,5vw,64px);">
-                Hola, soy<br>
+                Hi, I'm<br>
                 <span class="gradient-name">Yoensi Manuel</span>
             </h1>
         </div>
 
         <!-- Role -->
         <div class="animate-fade-up-3 font-mono text-[15px] text-[#e8833a] mb-6">
-            <span class="text-[#8888aa]">&lt;</span>Ing. Software<span class="text-[#8888aa]"> /&gt;</span>
-            <span class="text-white"> Desarrollando el Futuro.</span>
+            <span class="text-[#8888aa]">&lt;</span>Software Eng.<span class="text-[#8888aa]"> /&gt;</span>
+            <span class="text-white"> Building the Future.</span>
         </div>
 
         <!-- Description -->
         <p class="animate-fade-up-4 text-sm text-[#8888aa] leading-[1.75] max-w-[430px] mb-7">
-            Estudiante de Ingeniería de Software apasionado por el desarrollo web y móvil.
-            Especializado en Python, Kotlin, React y SQL. Organizado, creativo y siempre
-            dispuesto a crecer y aportar en cada proyecto.
+            Software Engineering student passionate about web and mobile development.
+            Specialized in Python, React and SQL. Organized, creative and always
+            eager to grow and contribute to every project.
         </p>
 
         <!-- Tech modules -->
         <div class="animate-fade-up-5 flex items-center flex-wrap gap-2 mb-7">
-            <span class="font-mono text-[10px] tracking-widest text-[#8888aa]">MÓDULOS_CARGADOS:</span>
+            <span class="font-mono text-[10px] tracking-widest text-[#8888aa]">LOADED_MODULES:</span>
             <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Python</span>
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Kotlin</span>
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">TypeScript</span>
             <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">React</span>
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Flutter</span>
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">Docker</span>
             <span class="font-mono text-[11px] px-2.5 py-1 rounded border border-[rgba(75,4,84,0.55)] bg-[rgba(75,4,84,0.12)] text-[#c792ea] hover:bg-[rgba(75,4,84,0.3)] hover:border-[#a020c8] hover:text-[#e8b4ff] transition-all cursor-default">MySQL</span>
         </div>
 
         <!-- CTA Buttons -->
         <div class="animate-fade-up-5 flex flex-wrap gap-3 mb-10">
             <button class="flex items-center gap-2 bg-[rgb(75,4,84)] border-none text-white font-sans text-sm font-semibold rounded-lg px-5 py-3 cursor-pointer transition-all shadow-[0_0_20px_rgba(75,4,84,0.45)] hover:bg-[#6a0dad] hover:shadow-[0_0_30px_rgba(160,32,200,0.55)] hover:-translate-y-px">
-                <i class="uil uil-rocket"></i> Contrátame
+                <i class="uil uil-rocket"></i> Hire Me
             </button>
             <a href="assets/pdf/cv_yoensi_arias.pdf" download class="flex items-center gap-2 bg-transparent text-[#e8e8f0] border border-white/15 font-sans text-sm font-medium rounded-lg px-5 py-3 no-underline transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#e8b4ff] hover:bg-[rgba(75,4,84,0.1)]">
-                <i class="uil uil-file-alt"></i> Descargar CV
+                <i class="uil uil-file-alt"></i> Download CV
             </a>
         </div>
 
         <!-- Social icons -->
         <div class="animate-fade-up-6 flex gap-3">
-            <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-instagram text-base"></i></div>
-            <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-linkedin-alt text-base"></i></div>
-            <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-dribbble text-base"></i></div>
-            <div class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-github-alt text-base"></i></div>
+            <a href="https://instagram.com/yoelwxq" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-instagram text-base"></i></a>
+            <a href="https://www.linkedin.com/in/yoensi-arias-248b32299/" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-linkedin-alt text-base"></i></a>
+            <a href="https://github.com/notgaabo" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center cursor-pointer text-[#8888aa] transition-all hover:border-[rgba(75,4,84,0.7)] hover:text-[#d070f0] hover:bg-[rgba(75,4,84,0.15)]"><i class="uil uil-github-alt text-base"></i></a>
         </div>
     </div>
 
@@ -159,15 +158,15 @@
 
             <!-- Code body -->
             <div class="px-6 py-5 text-[13px] leading-[1.9]">
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">1</span><span class="text-[#546e7a]">// Bienvenido a mi espacio de trabajo</span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">1</span><span class="text-[#546e7a]">// Welcome to my workspace</span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">2</span><span><span class="text-[#c792ea]">import</span><span class="text-white"> { </span><span class="text-[#69b5ff]">Developer</span><span class="text-white"> } </span><span class="text-[#c792ea]">from</span><span class="text-[#4ec94e]"> './universe'</span><span class="text-white">;</span></span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">3</span><span>&nbsp;</span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">4</span><span><span class="text-[#c792ea]">const</span><span class="text-[#82aaff]"> Portfolio</span><span class="text-white"> = () =&gt; {</span></span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">5</span><span>&nbsp;&nbsp;<span class="text-[#c792ea]">return</span> <span class="text-white">(</span></span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">6</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">&lt;Developer</span></span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">7</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">name</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Yoensi Arias"</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">8</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">role</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Ing. Software"</span></span></div>
-                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">9</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">pasión</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Desarrollando el Futuro"</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">8</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">role</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Software Eng."</span></span></div>
+                <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">9</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">passion</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Building the Future"</span></span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">/&gt;</span></span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">11</span><span>&nbsp;&nbsp;<span class="text-white">);</span></span></div>
                 <div class="flex gap-5"><span class="text-[#444466] min-w-[16px] select-none">12</span><span><span class="text-white">};</span><span class="inline-block w-0.5 h-3.5 bg-[#c792ea] ml-0.5 align-middle animate-cursor-blink"></span></span></div>
@@ -176,10 +175,10 @@
             <!-- Panel buttons -->
             <div class="flex gap-2.5 px-6 pb-5 pt-3.5 border-t border-[rgba(75,4,84,0.2)]">
                 <a href="#about" class="flex items-center gap-2 bg-[rgb(75,4,84)] text-white font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all shadow-[0_0_14px_rgba(75,4,84,0.4)] hover:bg-[#6a0dad]">
-                    <i class="uil uil-play text-sm"></i> Ver Perfil
+                    <i class="uil uil-play text-sm"></i> View Profile
                 </a>
                 <a href="#projects" class="flex items-center gap-2 bg-transparent text-[#d0d0e8] border border-white/10 font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all hover:border-[rgba(75,4,84,0.6)] hover:text-[#d070f0]">
-                    <i class="uil uil-folder-open text-sm"></i> Ver Proyectos
+                    <i class="uil uil-folder-open text-sm"></i> View Projects
                 </a>
             </div>
         </div>
@@ -194,8 +193,8 @@
 <!-- ===================== PROJECTS — GIT LOG ===================== -->
 <section id="projects" class="bg-dark py-20 px-[8vw] w-full box-border overflow-x-hidden">
     <div class="text-center mb-16">
-        <h1 class="text-2xl font-bold text-[#e8e8f0] font-sans mb-2">Proyectos</h1>
-        <span class="text-[#8888aa] text-sm">Repositorios destacados desde GitHub</span>
+        <h1 class="text-2xl font-bold text-[#e8e8f0] font-sans mb-2">Projects</h1>
+        <span class="text-[#8888aa] text-sm">Featured repositories from GitHub</span>
     </div>
 
     <div class="flex items-center gap-2.5 flex-wrap mb-12 font-mono font-semibold text-[#e8e8f0]" style="font-size:clamp(15px,2vw,22px)">
@@ -206,7 +205,19 @@
 
     <div class="git-timeline relative flex flex-col gap-14 pb-5" id="git-timeline">
         <div class="text-center font-mono text-[#8888aa] py-16 text-sm">
-            <span class="text-[#e8833a]">$</span> Cargando repos de <span class="text-[#c792ea]">NotGaabo</span>...
+            <span class="text-[#e8833a]">$</span> Loading repos from <span class="text-[#c792ea]">NotGaabo</span>...
+        </div>
+    </div>
+
+    <!-- Initial commit footer line -->
+    <div class="relative flex justify-center mt-10">
+        <!-- timeline line extension -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-6 bg-[rgba(75,4,84,0.5)]"></div>
+        <div class="mt-6 flex items-center gap-2 px-5 py-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-[#1a1a22] font-mono text-[13px] text-[#c8c8d8] shadow-[0_2px_18px_rgba(0,0,0,0.4)]">
+            <span class="text-[#8888aa] tracking-tighter select-none">-</span>
+            <div class="w-3 h-3 rounded-full border-2 border-[#c8c8d8] bg-dark flex-shrink-0"></div>
+            <span class="text-[#8888aa] tracking-tighter select-none">-</span>
+            <span class="ml-1">Initial Commit <span class="text-[#8888aa]">(Hello World)</span></span>
         </div>
     </div>
 </section>
@@ -214,15 +225,15 @@
 <!-- ===================== CONTACT ===================== -->
 <section id="contact" class="py-20 px-[10vw] bg-dark">
     <div class="text-center mb-16">
-        <h1 class="text-2xl font-bold text-[#e8e8f0] font-sans mb-2">Ponte en contacto</h1>
-        <span class="text-[#8888aa] text-sm">Si tienes un proyecto en mente, contáctame ahora.</span>
+        <h1 class="text-2xl font-bold text-[#e8e8f0] font-sans mb-2">Get in Touch</h1>
+        <span class="text-[#8888aa] text-sm">If you have a project in mind, contact me now.</span>
     </div>
 
     <div class="flex flex-col md:flex-row justify-between gap-12">
         <!-- Info -->
         <div class="flex w-full md:w-1/2">
             <div class="relative flex flex-col justify-center items-center w-full py-8 px-8 bg-[rgb(75,4,84)] rounded-xl shadow-lg overflow-hidden group">
-                <h2 class="text-white text-xl font-semibold mb-5 font-sans">Envíame <i class="uil uil-corner-right-down"></i></h2>
+                <h2 class="text-white text-xl font-semibold mb-5 font-sans">Send me a message <i class="uil uil-corner-right-down"></i></h2>
                 <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-envelope text-lg"></i> yoensiar@gmail.com</p>
                 <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-phone text-lg"></i> +1 (849) 460-6390</p>
                 <p class="flex items-center gap-2.5 text-white/90 my-1"><i class="uil uil-map-marker text-lg"></i> Ensanche Espaillat, C/ Interior J #68</p>
@@ -233,15 +244,15 @@
         <div class="flex w-full md:w-1/2">
             <form id="contact-form" class="flex flex-col gap-3 w-full">
                 <div class="flex gap-3">
-                    <input type="text" id="name" placeholder="Nombre" required
+                    <input type="text" id="name" placeholder="Name" required
                         class="w-1/2 h-14 bg-transparent border-2 border-white/20 rounded-xl px-5 outline-none text-white placeholder-white/40 focus:border-[rgba(75,4,84,0.7)] transition-colors">
                     <input type="email" id="email" placeholder="Email" required
                         class="w-1/2 h-14 bg-transparent border-2 border-white/20 rounded-xl px-5 outline-none text-white placeholder-white/40 focus:border-[rgba(75,4,84,0.7)] transition-colors">
                 </div>
-                <textarea id="message" placeholder="Mensaje" required
+                <textarea id="message" placeholder="Message" required
                     class="w-full h-60 bg-transparent border-2 border-white/20 rounded-xl p-5 outline-none text-white placeholder-white/40 resize-none focus:border-[rgba(75,4,84,0.7)] transition-colors"></textarea>
                 <button type="submit" class="flex items-center justify-center gap-2 bg-[rgb(75,4,84)] text-white font-sans font-semibold rounded-xl px-6 py-3.5 cursor-pointer transition-all hover:bg-[#6a0dad] shadow-[0_0_20px_rgba(75,4,84,0.4)]">
-                    Enviar <i class="uil uil-message rotate-[-45deg] text-lg"></i>
+                    Send <i class="uil uil-message rotate-[-45deg] text-lg"></i>
                 </button>
             </form>
         </div>
@@ -252,18 +263,17 @@
 <footer class="flex justify-center items-center flex-col gap-8 bg-card py-10 pb-16">
     <p class="text-2xl font-semibold font-sans text-[#e8e8f0]">Yoensi Manuel Arias Ogando</p>
     <ul class="flex gap-2">
-        <li class="list-none"><a href="#home" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Hogar</a></li>
-        <li class="list-none"><a href="#projects" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Proyectos</a></li>
-        <li class="list-none"><a href="#contact" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Contacto</a></li>
+        <li class="list-none"><a href="#home" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Home</a></li>
+        <li class="list-none"><a href="#projects" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Projects</a></li>
+        <li class="list-none"><a href="#contact" class="text-[#8888aa] hover:text-[#d070f0] font-medium px-5 no-underline transition-colors">Contact</a></li>
     </ul>
     <div class="flex gap-8">
-        <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-instagram"></i></div>
-        <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-linkedin-alt"></i></div>
-        <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-dribbble"></i></div>
-        <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-github-alt"></i></div>
+        <a href="https://instagram.com/yoelwxq" target="_blank" rel="noopener" class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/yoensi-arias-248b32299/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-linkedin-alt"></i></a>
+        <a href="https://github.com/notgaabo" target="_blank" rel="noopener" class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 text-[#8888aa] cursor-pointer hover:text-[#d070f0] transition-colors"><i class="uil uil-github-alt"></i></a>
     </div>
     <p class="text-sm text-[#8888aa] mt-2">
-        Copyright © <a href="#home" class="no-underline text-[#8888aa] hover:text-[#d070f0] transition-colors">Yoensi Manuel Arias Ogando</a> - Todos los derechos reservados
+        Copyright © <a href="#home" class="no-underline text-[#8888aa] hover:text-[#d070f0] transition-colors">Yoensi Manuel Arias Ogando</a> - All rights reserved
     </p>
 </footer>
 
@@ -328,7 +338,7 @@
                 ${repo.name} <i class="uil uil-external-link-alt text-xs opacity-60"></i>
               </a>
             </div>
-            <div class="text-xs text-[#8888aa] leading-relaxed bg-black/20 border-l-2 border-[rgba(75,4,84,0.5)] px-3 py-2 rounded-r mb-3">${repo.description||'Sin descripción disponible.'}</div>
+            <div class="text-xs text-[#8888aa] leading-relaxed bg-black/20 border-l-2 border-[rgba(75,4,84,0.5)] px-3 py-2 rounded-r mb-3">${repo.description||'No description available.'}</div>
             ${topics.length?`<div class="flex flex-wrap gap-1.5 mb-3">${topics.map(t=>`<span class="text-[11px] px-2 py-0.5 rounded border border-[rgba(75,4,84,0.45)] bg-[rgba(75,4,84,0.1)] text-[#c792ea]">${t}</span>`).join('')}</div>`:''}
             <div class="flex items-center gap-3 flex-wrap pt-2.5 border-t border-[rgba(75,4,84,0.15)] text-[11px] text-[#8888aa]">
               ${repo.language?`<span class="inline-flex items-center gap-1"><span style="width:10px;height:10px;border-radius:50%;background:${lc};display:inline-block;"></span><span style="color:${lc};">${repo.language}</span></span>`:''}
@@ -343,13 +353,13 @@
     function renderTimeline(repos){
         const el = document.getElementById('git-timeline');
         if(!repos||!repos.length){
-            el.innerHTML='<div class="text-center font-mono text-[#f78c6c] py-16">No se encontraron repositorios.</div>';
+            el.innerHTML='<div class="text-center font-mono text-[#f78c6c] py-16">No repositories found.</div>';
             return;
         }
         el.innerHTML = repos.map((r,i)=>{
             const side = i%2===0?'left':'right';
             const date = fmtDate(r.updated_at);
-            const label = i===0?`${date} — Presente`:date;
+            const label = i===0?`${date} — Present`:date;
             return `
             <div class="git-entry grid items-start" style="grid-template-columns:1fr 110px 1fr;">
               <div class="git-card-left flex justify-end pr-4.5">${side==='left'?buildCard(r):''}</div>
@@ -364,24 +374,26 @@
         }).join('');
     }
 
+    // Fetch only the two specific repos
     async function fetchProjects(){
+        const REPOS = [
+            'Proyecto-Inventario-con-QR-code',
+            'U-Park'
+        ];
         try {
-            const res = await fetch('https://api.github.com/users/NotGaabo/repos?sort=updated&per_page=10');
-            if(!res.ok) throw new Error();
-            let repos = await res.json();
-            repos = repos.filter(r=>!r.fork)
-                .sort((a,b)=>(b.stargazers_count-a.stargazers_count)||new Date(b.updated_at)-new Date(a.updated_at))
-                .slice(0,6);
-            if(!repos.length){
-                const r2 = await fetch('https://api.github.com/users/NotGaabo/repos?sort=updated&per_page=6');
-                repos = await r2.json();
-            }
+            const results = await Promise.all(
+                REPOS.map(name =>
+                    fetch(`https://api.github.com/repos/NotGaabo/${name}`).then(r => r.ok ? r.json() : null)
+                )
+            );
+            const repos = results.filter(Boolean);
+            if(!repos.length) throw new Error('No repos');
             renderTimeline(repos);
         } catch(e){
             document.getElementById('git-timeline').innerHTML=`
             <div class="text-center font-mono py-16">
-              <span class="text-[#f78c6c]">Error al cargar.</span><br>
-              <a href="https://github.com/NotGaabo" target="_blank" class="text-[#c792ea] text-xs">Ver github.com/NotGaabo</a>
+              <span class="text-[#f78c6c]">Failed to load.</span><br>
+              <a href="https://github.com/NotGaabo" target="_blank" class="text-[#c792ea] text-xs">View github.com/NotGaabo</a>
             </div>`;
         }
     }
@@ -404,9 +416,9 @@ document.getElementById("contact-form").addEventListener("submit", function(e){
     emailjs.send("service_puwc7eg","template_00vxroi",{from_name:name,email_id:userEmail,message,tiempo})
     .then(()=>emailjs.send("service_puwc7eg","template_1yd2ako",{
         email:userEmail, from_name:"Yoensi Arias", from_email:"tu-correo@gmail.com",
-        message:"¡Gracias por contactarme! Te responderé lo antes posible."
+        message:"Thank you for reaching out! I'll get back to you as soon as possible."
     }))
-    .then(()=>{ alert("✅ Mensaje enviado."); document.getElementById("contact-form").reset(); })
+    .then(()=>{ alert("✅ Message sent successfully."); document.getElementById("contact-form").reset(); })
     .catch(err=>alert("❌ Error: "+JSON.stringify(err)));
 });
 </script>
