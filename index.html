@@ -164,6 +164,33 @@
         @media (max-width: 400px) {
             .code-panel-body { font-size: 11px !important; }
         }
+        /* TYPEWRITER */
+        .tw-line { display: flex; gap: 1rem; opacity: 0; min-height: 1.9em; }
+        @media (min-width: 768px) { .tw-line { gap: 1.25rem; } }
+        .tw-line.visible { opacity: 1; }
+        .tw-line-num { color: #444466; min-width: 16px; user-select: none; flex-shrink: 0; }
+        .tw-line-content { display: inline; white-space: pre-wrap; word-break: break-word; }
+
+        .tw-cursor {
+            display: inline-block;
+            width: 2px; height: 0.85em;
+            background: #c792ea;
+            margin-left: 1px;
+            vertical-align: middle;
+            border-radius: 1px;
+            animation: twCursorBlink 0.6s step-end infinite;
+        }
+        @keyframes twCursorBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+        #code-panel-buttons {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        #code-panel-buttons.show { opacity: 1; transform: translateY(0); }
+
+        #status-dot { transition: background 0.3s ease, box-shadow 0.3s ease; }
+        #status-dot.ready { background: #28c840 !important; box-shadow: 0 0 6px #28c840 !important; }
     </style>
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -225,30 +252,17 @@
                         <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
                     </div>
                     <div class="flex items-center gap-2 text-xs text-[#8888aa]">
-                        <span class="animate-status-pulse w-1.5 h-1.5 rounded-full bg-[#e8833a] shadow-[0_0_6px_#e8833a]"></span>
+                       <span id="status-dot" class="animate-status-pulse w-1.5 h-1.5 rounded-full bg-[#e8833a] shadow-[0_0_6px_#e8833a]"></span>
                         portfolio.tsx
                     </div>
                     <div class="w-16"></div>
                 </div>
-
-                <!-- Code body -->
-                <div class="code-panel-body px-4 md:px-6 py-5 text-[12px] md:text-[13px] leading-[1.9]">
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">1</span><span class="text-[#546e7a]">// Welcome to my workspace</span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">2</span><span><span class="text-[#c792ea]">import</span><span class="text-white"> { </span><span class="text-[#69b5ff]">Developer</span><span class="text-white"> } </span><span class="text-[#c792ea]">from</span><span class="text-[#4ec94e]"> './universe'</span><span class="text-white">;</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">3</span><span>&nbsp;</span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">4</span><span><span class="text-[#c792ea]">const</span><span class="text-[#82aaff]"> Portfolio</span><span class="text-white"> = () =&gt; {</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">5</span><span>&nbsp;&nbsp;<span class="text-[#c792ea]">return</span> <span class="text-white">(</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">6</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">&lt;Developer</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">7</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">name</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Yoensi Arias"</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">8</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">role</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Software Eng."</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">9</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#ffcb6b]">passion</span><span class="text-white">=</span><span class="text-[#4ec94e]">"Building the Future"</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#89ddff]">/&gt;</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">11</span><span>&nbsp;&nbsp;<span class="text-white">);</span></span></div>
-                    <div class="flex gap-4 md:gap-5"><span class="text-[#444466] min-w-[16px] select-none">12</span><span><span class="text-white">};</span><span class="inline-block w-0.5 h-3.5 bg-[#c792ea] ml-0.5 align-middle animate-cursor-blink"></span></span></div>
-                </div>
+                
+                <!-- Code body — filled by typewriter JS -->
+                <div class="code-panel-body px-4 md:px-6 py-5 text-[12px] md:text-[13px] leading-[1.9]" id="tw-code-body"></div>
 
                 <!-- Panel buttons -->
-                <div class="flex gap-2.5 px-4 md:px-6 pb-5 pt-3.5 border-t border-[rgba(75,4,84,0.2)]">
+                <div id="code-panel-buttons" class="flex gap-2.5 px-4 md:px-6 pb-5 pt-3.5 border-t border-[rgba(75,4,84,0.2)]">
                     <a href="#about" class="flex items-center gap-2 bg-[rgb(75,4,84)] text-white font-sans text-[13px] font-medium rounded-md px-4 py-2 no-underline transition-all shadow-[0_0_14px_rgba(75,4,84,0.4)] hover:bg-[#6a0dad]">
                         <i class="uil uil-play text-sm"></i> View Profile
                     </a>
@@ -639,6 +653,122 @@
 <script src="assets/js/main.js"></script>
 
 <script>
+const CODE_LINES = [
+    [{ text: '// Welcome to my workspace', color: '#546e7a' }],
+    [
+        { text: 'import', color: '#c792ea' },
+        { text: ' { ', color: '#ffffff' },
+        { text: 'Developer', color: '#69b5ff' },
+        { text: ' } ', color: '#ffffff' },
+        { text: 'from', color: '#c792ea' },
+        { text: " './universe'", color: '#4ec94e' },
+        { text: ';', color: '#ffffff' },
+    ],
+    [{ text: ' ', color: '#ffffff' }],
+    [
+        { text: 'const', color: '#c792ea' },
+        { text: ' Portfolio', color: '#82aaff' },
+        { text: ' = () => {', color: '#ffffff' },
+    ],
+    [
+        { text: '  return', color: '#c792ea' },
+        { text: ' (', color: '#ffffff' },
+    ],
+    [{ text: '    <Developer', color: '#89ddff' }],
+    [
+        { text: '      ', color: '#ffffff' },
+        { text: 'name', color: '#ffcb6b' },
+        { text: '=', color: '#ffffff' },
+        { text: '"Yoensi Arias"', color: '#4ec94e' },
+    ],
+    [
+        { text: '      ', color: '#ffffff' },
+        { text: 'role', color: '#ffcb6b' },
+        { text: '=', color: '#ffffff' },
+        { text: '"Software Eng."', color: '#4ec94e' },
+    ],
+    [
+        { text: '      ', color: '#ffffff' },
+        { text: 'passion', color: '#ffcb6b' },
+        { text: '=', color: '#ffffff' },
+        { text: '"Building the Future"', color: '#4ec94e' },
+    ],
+    [{ text: '    />', color: '#89ddff' }],
+    [{ text: '  );', color: '#ffffff' }],
+    [{ text: '};', color: '#ffffff' }],
+];
+
+const CHAR_SPEED  = 26;
+const LINE_PAUSE  = 70;
+const START_DELAY = 700;
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function typewriterAnimation() {
+    const body = document.getElementById('tw-code-body');
+
+    const lineEls = CODE_LINES.map((tokens, i) => {
+        const row = document.createElement('div');
+        row.className = 'tw-line';
+
+        const numSpan = document.createElement('span');
+        numSpan.className = 'tw-line-num';
+        numSpan.textContent = String(i + 1);
+
+        const contentSpan = document.createElement('span');
+        contentSpan.className = 'tw-line-content';
+
+        row.appendChild(numSpan);
+        row.appendChild(contentSpan);
+        body.appendChild(row);
+        return { row, contentSpan };
+    });
+
+    await sleep(START_DELAY);
+
+    for (let i = 0; i < CODE_LINES.length; i++) {
+        const { row, contentSpan } = lineEls[i];
+        const isLast = i === CODE_LINES.length - 1;
+
+        row.classList.add('visible');
+
+        const cursorEl = document.createElement('span');
+        cursorEl.className = 'tw-cursor';
+        contentSpan.appendChild(cursorEl);
+
+        let currentColor = null;
+        let spanEl = null;
+
+        for (const tok of CODE_LINES[i]) {
+            for (const ch of tok.text) {
+                if (tok.color !== currentColor) {
+                    spanEl = document.createElement('span');
+                    spanEl.style.color = tok.color;
+                    contentSpan.insertBefore(spanEl, cursorEl);
+                    currentColor = tok.color;
+                }
+                spanEl.textContent += ch;
+                await sleep(CHAR_SPEED);
+            }
+        }
+
+        if (!isLast) {
+            contentSpan.removeChild(cursorEl);
+            await sleep(LINE_PAUSE);
+        }
+    }
+
+    // Status dot → verde
+    const dot = document.getElementById('status-dot');
+    dot.classList.remove('animate-status-pulse');
+    dot.classList.add('ready');
+
+    // Mostrar botones
+    document.getElementById('code-panel-buttons').classList.add('show');
+}
+</script>
+
+<script>
     // Nav scroll effect
     window.addEventListener('scroll', () => {
         const nav = document.getElementById('header');
@@ -757,6 +887,7 @@
 
     window.onload = function(){
         fetchProjects();
+        typewriterAnimation();
     };
 </script>
 
